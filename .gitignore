@@ -1,0 +1,5 @@
+node_modules
+BeerPong
+*.zip
+pakcage-log.json
+build
