@@ -63,6 +63,7 @@ export default function FrontPage({websocket}){
     function closeGame(){
         setUserId(null);
         setGameId(null);
+        window.location.reload();
     }
     function startGame(value){
         setGameId(value)
