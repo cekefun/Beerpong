@@ -7,7 +7,7 @@ export default function Rules () {
     <h2> How to Play </h2>
     This game requires at least 2 players including someone using this app to keep track of the cups hit.
     <br/>
-    To see wether or not we hit a cup we will generate a number between 1 and 100.
+    To see whether or not we hit a cup we will generate a number between 1 and 100.
     <br/>
     <br/>
     We take that number and look at the last of digit in last place. This is the cup you'd hit. If the cup is still there on your opponents side, you remove the cup. 
@@ -34,6 +34,19 @@ export default function Rules () {
     The reset button sets all cups from that side of the board back to red.
     <br/>
     The input field can be used to indicate who is which side of the board.
-
+    <h3>Creating a Session</h3>
+    To create a session, simply press the <b>Create Game</b> button. 
+    <br/>
+    This will allow you to input names and click fields. 
+    <br/>
+    On top of the screen, a game code is shown. Share this to the other members.
+    <h3>Joining a game</h3>
+    To join a game, input the game code received from the host and click the <b>Join Game</b> button.
+    <br/>
+    This is a view only and you won't be able to edit any of the values on the page.
+    <h3>Leaving a session</h3>
+    To leave a session, press the <b>Leave game</b> button or refresh the page.
+    <br/>
+    <b>DO NOTE THAT YOU CAN'T REJOIN A GAME AS ADMIN!</b>
     </div>    );
 }
