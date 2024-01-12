@@ -1,15 +1,12 @@
-import Cookies from 'universal-cookie';
 import Player from './Player'
-import { useState } from 'react';
 
 
-export default function Game({closeGame, gameState, admin}){
-    const cookies = new Cookies();
+export default function Game({closeGame, gameState, admin, gameId}){
 
     return (
         <div>
         <div className="column">
-        <span>GAME CODE: {cookies.get("game")}</span>
+        <span>GAME CODE: {gameId}</span>
         <br/>
         <button onClick={() => closeGame()}>Leave Game</button>
         <Player upsidedown={true} name={gameState.player1.name} setName={gameState.player1.setName} squares={gameState.player1.squares} setSquares={gameState.player1.setSquares} admin={admin}/>

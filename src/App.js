@@ -1,6 +1,5 @@
 import Rules from './components/Rules';
 import FrontPage from './components/FrontPage';
-import Cookies from "universal-cookie";
 
 
 export default function Board() {

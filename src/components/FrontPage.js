@@ -1,13 +1,11 @@
-import Cookies from "universal-cookie";
 import Game from "./Game";
 import GameCreate from "./GameCreate";
 import { useState } from 'react';
 
 
 export default function FrontPage({websocket}){
-    const cookies = new Cookies();
-
-    const [game_loaded, setGame_loaded] = useState(!!cookies.get("game"));
+    const [userId, setUserId] = useState(null);
+    const [gameId, setGameId] = useState(null);
     const [squares, setSquares] = useState(Array(10).fill(false));
     const [name, setName] = useState("TEST");
     const [squares2, setSquares2] = useState(Array(10).fill(false));
@@ -34,16 +32,13 @@ export default function FrontPage({websocket}){
     websocket.onclose = (event) => {console.log(event); console.log("closed")}
     websocket.onmessage = message => {
         const response = JSON.parse(message.data);
-        console.log(response);
         //connect
         if (response.method === "connect"){
-                cookies.set("userId", response.clientId);
+            setUserId(response.clientId);
         }
 
         //create
         if (response.method === "create"){
-            console.log("created")
-            console.log(response);
             const value = response.game.id;
             startGame(value);
             setAdmin(true);
@@ -66,19 +61,14 @@ export default function FrontPage({websocket}){
 
 
     function closeGame(){
-        cookies.remove("game")
-        cookies.remove("userId")
-        setGame_loaded(false);
+        setUserId(null);
+        setGameId(null);
     }
     function startGame(value){
-        cookies.set("game", value)
-        setGame_loaded(true);
+        setGameId(value)
     }
 
     function updateGameState(game){
-        console.log("updating")
-        console.log(game);
-        cookies.set("host", game.host);
         setName(game.player1.name);
         setName2(game.player2.name);
         setSquares(game.player1.squares);
@@ -88,7 +78,7 @@ export default function FrontPage({websocket}){
     function sendUpdate(name, squares, name2, squares2){
         const request = {
             method: "update",
-            gameId: cookies.get("game"),
+            gameId: gameId,
             game: {
                 player1: {
                     name: name,
@@ -99,17 +89,14 @@ export default function FrontPage({websocket}){
                     squares: squares2
                 }
             },
-            userId: cookies.get("userId")
+            userId: userId
         }
-        console.log("sending update")
-        console.log(request)
         websocket.send(JSON.stringify(request))
     }
 
 
-    console.log(JSON.stringify(cookies))
-    if (game_loaded){
-        return (<Game closeGame={closeGame} websocket={websocket} gameState={game} admin={admin}/>)
+    if (!!gameId){
+        return (<Game closeGame={closeGame} websocket={websocket} gameState={game} admin={admin} gameId={gameId}/>)
     }
-    return <GameCreate websocket={websocket}/>
+    return <GameCreate websocket={websocket} userId={userId}/>
 }

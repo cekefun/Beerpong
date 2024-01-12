@@ -1,14 +1,12 @@
 import { useState } from "react";
-import Cookies from "universal-cookie";
 
 
-function GameCreate({websocket}) {
-    const cookies = new Cookies();
+function GameCreate({websocket, userId}) {
     const [gameId, setGameId] = useState("");
     const createGame = () => {
         const request = {
             "method": "create",
-            "userId": cookies.get("userId")
+            "userId": userId
         }
         websocket.send(JSON.stringify(request))
     }
@@ -16,7 +14,7 @@ function GameCreate({websocket}) {
     const joinGame = () => {
         const request = {
             "method": "join",
-            "userId": cookies.get("userId"),
+            "userId": userId,
             "gameId": gameId
         }
         websocket.send(JSON.stringify(request))
