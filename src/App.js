@@ -3,7 +3,7 @@ import FrontPage from './components/FrontPage';
 
 
 export default function Board() {
-  const websocket = new WebSocket("ws://158.101.172.58:9090");
+  const websocket = new WebSocket("ws://localhost:9090");
 
 
   return (

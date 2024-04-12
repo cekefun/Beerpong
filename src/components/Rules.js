@@ -10,11 +10,13 @@ export default function Rules () {
     To see whether or not we hit a cup we will generate a number between 1 and 100.
     <br/>
     <br/>
-    We take that number and look at the last of digit in last place. This is the cup you'd hit. If the cup is still there on your opponents side, you remove the cup. 
+    We take that number and look at the digit in first place. This is the cup you'd hit. If the cup is still there on your opponents side, you remove the cup. 
+    <br/> 
+    If your number is only 1 digit long (for example 5), you hit the highest number cup. 
     <br/>
     If it's already removed, nothing happened unless you hit one of the trick shots.
     <h2> Trick Shots </h2>
-    These trick shots only work when the cup they would have hit has already been removed. If it hasn't been removed, then remove the cup instead.
+    These trick shots only work when you hit one of the special numbers.
     <ul>
       <li><b>Doubles</b>: If you roll the same digit twice, you get to roll again! For clarity, applicable numbers are 11, 22, 33, 44, 55, 66, 77, 88 and 99</li>
       <li><b>Bad shot</b>: If you roll a 1, the ball bounces back and your opponent gets to remove one of your cups of their choice.</li>
@@ -23,11 +25,12 @@ export default function Rules () {
       <li><b>Perfect shot</b>: If you roll a 100, you get to remove 2 cups of your choice.</li>
     </ul>
     <h2> Special events </h2>
-    Once a total of 10 cups have been removed, a special round starts!
+    Once enough cups have been removed to remove a full row, the cups are reshuffled and the random range is re-organized. 
     <br/>
-    Each player takes their turn like normal, but if they hit a cup on their opponents side, they get to add that same cup back to your side! 
+    If 4 cups are removed, the large row's removed and the randomizer is changed to /random 60.
     <br/>
-    If that cup is still standing, then nothing happens.
+    If 7 cups are removed, the 2 largest rows are removed and the randomizer is changed to /random 30.
+    
     <h2> How to Use this tool? </h2>
     This tool is to keep track of which player still has which cups. Click a cup to change red to green and green to red.
     <br/>
