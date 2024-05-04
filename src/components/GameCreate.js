@@ -22,15 +22,23 @@ function GameCreate({websocket, userId}) {
 
     return(
         <>
-        <div className="column">
-        <div className="GameCreate">
-            <label>Create a new game</label>
-            <button onClick={createGame}>Create Game</button>
-        </div>
+        <div className="column gamecreatescreen">
         <div className="GameJoin">
-            <label>Join a game</label>
-            <input onChange={(event => setGameId(event.target.value) )}></input>
-            <button onClick={joinGame}>Join Game</button>
+            <div className="row">
+                <h1>Join a game</h1>
+            </div>
+            <div className="row">
+                <input onChange={(event => setGameId(event.target.value) )}></input>
+                <button onClick={joinGame}>Join Game</button>
+            </div>
+        </div>
+        <div className="GameCreate">
+            <div className="row">
+                <h1>Create a new game</h1>
+            </div>
+            <div className="row">
+                <button onClick={createGame}>Create Game</button>
+            </div>
         </div>
         </div>
         </>
