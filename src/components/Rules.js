@@ -27,9 +27,9 @@ export default function Rules () {
     <h2> Special events </h2>
     Once enough cups have been removed to remove a full row, the cups are reshuffled and the random range is re-organized. 
     <br/>
-    If 4 cups are removed, the large row's removed and the randomizer is changed to /random 60.
+    If 4 cups are removed, the large row's removed and the randomizer is changed to /random 70.
     <br/>
-    If 7 cups are removed, the 2 largest rows are removed and the randomizer is changed to /random 30.
+    If 7 cups are removed, the 2 largest rows are removed and the randomizer is changed to /random 40.
     
     <h2> How to Use this tool? </h2>
     This tool is to keep track of which player still has which cups. Click a cup to change red to green and green to red.
