@@ -11,8 +11,6 @@ export default function Rules () {
     <br/>
     <br/>
     We take that number and look at the digit in first place. This is the cup you'd hit. If the cup is still there on your opponents side, you remove the cup. 
-    <br/> 
-    If your number is only 1 digit long (for example 5), you hit the highest number cup. 
     <br/>
     If it's already removed, nothing happened unless you hit one of the trick shots.
     <h2> Trick Shots </h2>
