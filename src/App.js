@@ -9,7 +9,6 @@ export default function Board() {
   return (
     <>
     <img src='/images/CTTRedLogo.png' className="ct-logo"/>
-    <img src='/images/Solace_Logo.png' className="partner-logo"/>
     <FrontPage websocket={websocket}/>
     <Rules/>
     
